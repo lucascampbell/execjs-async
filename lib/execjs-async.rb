@@ -14,7 +14,7 @@ module Execjs
         },
         function(ruby_time){
           #{ruby_time}
-        }
+        },
         function(program) {
           var output, print = function(string) {
             process.stdout.write('' + string);
