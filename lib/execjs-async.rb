@@ -11,7 +11,10 @@ module Execjs
           execJS(program) })
         (function(callback) { 
           #{source}
-        }, 
+        },
+        function(ruby_time){
+          #{ruby_time}
+        }
         function(program) {
           var output, print = function(string) {
             process.stdout.write('' + string);
@@ -38,6 +41,9 @@ module Execjs
         ASYNC_SOURCE.dup.tap do |output|
           output.sub!('#{source}') do
             source
+          end
+          output.sub!('#{ruby_time}') do
+            Time.now
           end
           output.sub!('#{encoded_source}') do
             encoded_source = encode_unicode_codepoints(source)
