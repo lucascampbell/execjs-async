@@ -43,7 +43,7 @@ module Execjs
             source
           end
           output.sub!('#{ruby_time}') do
-            Time.now
+            "var i = 0;"
           end
           output.sub!('#{encoded_source}') do
             encoded_source = encode_unicode_codepoints(source)
