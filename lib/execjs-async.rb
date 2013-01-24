@@ -40,12 +40,12 @@ module Execjs
       def compile(source)        
         ASYNC_SOURCE.dup.tap do |output|
           output.sub!('#{source}') do
-            puts source
+            puts "here is callbck *** #{source}"
             source
           end
-          output.sub!('#{ruby_time}') do
-            ""
-          end
+          # output.sub!('#{ruby_time}') do
+          #             ""
+          #           end
           output.sub!('#{encoded_source}') do
             encoded_source = encode_unicode_codepoints(source)
             MultiJson.encode("(function(){ #{encoded_source} })()")
