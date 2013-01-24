@@ -9,11 +9,11 @@ module Execjs
       ASYNC_SOURCE = <<-'JAVASCRIPT'
         (function(program, execJS, module, exports, require) { 
           execJS(program) })
+        (function(ruby_time){
+          #{ruby_time} 
+        })
         (function(callback) { 
           #{source}
-        },
-        function(ruby_time){
-          #{ruby_time}
         },
         function(program) {
           var output, print = function(string) {
