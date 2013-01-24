@@ -9,9 +9,6 @@ module Execjs
       ASYNC_SOURCE = <<-'JAVASCRIPT'
         (function(program, execJS, module, exports, require) { 
           execJS(program) })
-        (function(ruby_time){
-          #{ruby_time} 
-        })
         (function(callback) { 
           #{source}
         },
@@ -43,9 +40,6 @@ module Execjs
             puts "here is callbck *** #{source}"
             source
           end
-          # output.sub!('#{ruby_time}') do
-          #             ""
-          #           end
           output.sub!('#{encoded_source}') do
             encoded_source = encode_unicode_codepoints(source)
             MultiJson.encode("(function(){ #{encoded_source} })()")
