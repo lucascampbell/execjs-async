@@ -3,7 +3,6 @@ require 'execjs'
 
 module Execjs
   module Async
-    
     # extend from nodes external runtime context, and
     # overwrite compile to use the async source.    
     class Context < ExecJS::ExternalRuntime::Context
