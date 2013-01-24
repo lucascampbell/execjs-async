@@ -40,10 +40,11 @@ module Execjs
       def compile(source)        
         ASYNC_SOURCE.dup.tap do |output|
           output.sub!('#{source}') do
+            puts source
             source
           end
           output.sub!('#{ruby_time}') do
-            "function(){return 4;}"
+            ""
           end
           output.sub!('#{encoded_source}') do
             encoded_source = encode_unicode_codepoints(source)
