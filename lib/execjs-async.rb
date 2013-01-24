@@ -9,7 +9,7 @@ module Execjs
       ASYNC_SOURCE = <<-'JAVASCRIPT'
         (function(program, execJS, module, exports, require) { 
           execJS(program) })
-        (function(callback) { 
+        (function(a_callback) { 
           #{source}
         }, 
         function(program) {
