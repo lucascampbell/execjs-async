@@ -8,8 +8,12 @@ module Execjs
     # overwrite compile to use the async source.    
     class Context < ExecJS::ExternalRuntime::Context
       ASYNC_SOURCE = <<-'JAVASCRIPT'
-        (function(program, execJS, module, exports, require) { execJS(program) })(function(callback) { #{source}
-        }, function(program) {
+        (function(program, execJS, module, exports, require) { 
+          execJS(program) })
+        (function(callback) { 
+          #{source}
+        }, 
+        function(program) {
           var output, print = function(string) {
             process.stdout.write('' + string);
           };
