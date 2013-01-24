@@ -34,7 +34,8 @@ module Execjs
         });
       JAVASCRIPT
       
-      def compile(source)        
+      def compile(source)   
+        puts "inside compile"     
         ASYNC_SOURCE.dup.tap do |output|
           output.sub!('#{source}') do
             puts "here is callbck *** #{source}"
@@ -52,6 +53,7 @@ module Execjs
     end
     
     def compile_async(source)
+      puts "inside compile async"
       Context.new(self, source)
     end
   end
