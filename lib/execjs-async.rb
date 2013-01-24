@@ -3,7 +3,7 @@ require 'execjs'
 
 module Execjs
   module Async
-    # print(JSON.stringify(['ok', result]));
+    
     # extend from nodes external runtime context, and
     # overwrite compile to use the async source.    
     class Context < ExecJS::ExternalRuntime::Context
@@ -23,7 +23,7 @@ module Execjs
                 print('["ok"]');
               } else {
                 try {
-                  print(result);
+                  print(JSON.stringify(['ok', result]));
                 } catch (err) {
                   print('["err"]');
                 }
